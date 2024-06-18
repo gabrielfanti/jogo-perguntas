@@ -30,23 +30,28 @@ body {
     text-align: center;
 }
 
-input[type="file"], input[type="text"], button {
+input[type="file"],
+input[type="text"],
+button {
     margin: 10px;
     padding: 10px;
     font-size: 16px;
 }
 
-#result, #scoreBoard {
+#result,
+#scoreBoard {
     font-size: 18px;
     margin-top: 20px;
 }
 
-#leaderboardList, #podiumList {
+#leaderboardList,
+#podiumList {
     list-style-type: none;
     padding: 0;
 }
 
-#leaderboardList li, #podiumList li {
+#leaderboardList li,
+#podiumList li {
     padding: 5px 0;
 }
 

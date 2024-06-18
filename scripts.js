@@ -21,7 +21,7 @@ function handleFileSelect(event) {
         if (!gameStarted && questions.length > 0) {
             gameStarted = true;
             startGame();
-            showNextQuestion(); // Mostra a primeira pergunta automaticamente
+            showNextQuestion();
         }
     };
 
@@ -97,7 +97,7 @@ function updateScore() {
 }
 
 function updateScoreboard(scoreboard) {
-    const scoreboardList = document.getElementById('scoreboardList');
+    const scoreboardList = document.getElementById('leaderboardList');
     scoreboardList.innerHTML = '';
 
     scoreboard.forEach((player, index) => {
@@ -111,6 +111,10 @@ function endGame() {
     if (socket) {
         socket.close();
     }
+    const scoreboard = JSON.parse(localStorage.getItem('scoreboard')) || [];
+    scoreboard.push({ name: playerName, score: score });
+    scoreboard.sort((a, b) => b.score - a.score);
+    localStorage.setItem('scoreboard', JSON.stringify(scoreboard));
     displayPodium();
 }
 

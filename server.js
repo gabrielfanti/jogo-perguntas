@@ -17,11 +17,13 @@ wss.on('connection', (ws) => {
         if (data.type === 'join') {
             const player = { name: data.name, score: 0, ws };
             players.push(player);
+            console.log(`Player ${data.name} joined.`);
             broadcastScoreboard();
         } else if (data.type === 'updateScore') {
             const player = players.find(p => p.name === data.name);
             if (player) {
                 player.score = data.score;
+                console.log(`Player ${data.name} score updated to ${data.score}.`);
                 broadcastScoreboard();
             }
         }
@@ -29,6 +31,7 @@ wss.on('connection', (ws) => {
 
     ws.on('close', () => {
         players = players.filter(p => p.ws !== ws);
+        console.log(`Player disconnected.`);
         broadcastScoreboard();
     });
 });
@@ -41,5 +44,5 @@ function broadcastScoreboard() {
 
 const PORT = 8080;
 server.listen(PORT, () => {
-    console.log(`Server is listening on port ${PORT}`);
-});
+    console.log('Server is listening on', {PORT});
+    });
