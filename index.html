@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo de Perguntas e respostas</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="modal" id="nameModal">
+        <div class="modal-content">
+            <h2>Bem-vindo ao Jogo!</h2>
+            <p>Por favor, insira seu nome:</p>
+            <input type="text" id="playerName">
+            <button id="startGame">Iniciar Jogo</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="sidebar">
+            <h2>Leaderboard</h2>
+            <ol id="leaderboardList"></ol>
+        </div>
+        <div class="main-content">
+            <h1>Jogo de Perguntas e respostas</h1>
+            <input type="file" id="csvFileInput" accept=".csv">
+            <div id="question-container">
+                <p id="question"></p>
+                <input type="text" id="answer">
+                <button id="submitAnswer">Responder</button>
+            </div>
+            <div id="result"></div>
+            <div id="scoreBoard">
+                <p>Jogador: <span id="currentPlayer"></span></p>
+                <p>Pontuação: <span id="currentScore">0</span></p>
+            </div>
+            <button id="nextQuestion">Próxima Pergunta</button>
+        </div>
+    </div>
+
+    <div class="modal" id="podiumModal">
+        <div class="modal-content">
+            <h2>Pódio</h2>
+            <ol id="podiumList"></ol>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
